@@ -114,7 +114,9 @@
       <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
     </div>
     <div class="lg:flex lg:flex-1 lg:justify-end">
-      <button id="loginBtn" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></button>
+      <button id="registerBtn" class="hover:text-amber-300 text-sm font-semibold leading-6 text-gray-900">register <span aria-hidden="true">🆕</span></button>
+      &nbsp&nbsp&nbsp&nbsp
+      <button id="loginBtn" class="hover:text-lime-400 text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">🚀</span></button>
     </div>
   </nav>
 </header>

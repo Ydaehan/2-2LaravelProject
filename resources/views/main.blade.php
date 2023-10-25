@@ -10,5 +10,6 @@
     <x-header />
     <x-carousel />
     <x-login-form />    
+    <x-register-form />
 </body>
 </html>
