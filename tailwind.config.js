@@ -8,8 +8,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      width:{
+        'half': '50rem',
+        'register': '35rem',
+      },
       height: {
         'half': '50rem',
+        'register': '30rem',
       }
     },
   },

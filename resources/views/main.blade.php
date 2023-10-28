@@ -9,7 +9,11 @@
 <body>
     <x-header />
     <x-carousel />
-    <x-login-form />    
-    <x-register-form />
+    @if(session('success'))
+      <script>
+          alert('{{ session('success') }}');
+      </script>
+    @endif
 </body>
 </html>
+

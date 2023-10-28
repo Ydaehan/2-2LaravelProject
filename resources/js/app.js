@@ -1,5 +1,5 @@
 import './bootstrap';
-import { Modal,Carousel } from 'flowbite';
+import { Carousel } from 'flowbite';
 
 
 const toggleBtn = document.getElementById('toggleBtn');
@@ -44,56 +44,11 @@ toggleBtn.addEventListener('click', function() {
 });
 
 // login 관련
-const $openLoginModal = document.getElementById('loginBtn');
-const $loginModal = document.getElementById('loginModal');
-const $loginBtn = document.getElementById('btnLogin');
-const $cancelBtn = document.getElementById('btnCancel');
 
-const modal = new Modal($loginModal);
-const $modalOut = document.getElementById('modalOut');
-
-$openLoginModal.addEventListener('click', () => {
-  modal.show();
-})
-
-$loginBtn.addEventListener('click',() => {
-  modal.hide();
-})
-
-$cancelBtn.addEventListener('click',() => {
-  modal.hide();
-})
-
-$modalOut.addEventListener('click', (e) => {
-  if($modalOut === e.target) {
-    modal.hide();
-  }
-})
 
 // register
-const $openRegisterModal = document.getElementById('registerBtn');
-const $registerModal = document.getElementById('registerModal');
-
-const rModal = new Modal($registerModal);
-const $rModalOut = document.getElementById('rModalOut');
-const $btnRegister = document.getElementById('btnRegister');
-const $btnRCancel = document.getElementById('btnRCancel');
-
-$rModalOut.addEventListener('click', (e) => {
-  if($rModalOut === e.target) {
-    rModal.hide();
-  }
+const $rCancelBtn = document.getElementById('rCancelBtn');
+$rCancelBtn.addEventListener('click',(e) => {
+  e.preventDefault();
+  window.history.back();
 })
-
-$btnRegister.addEventListener('click',() => {
-  rModal.hide();
-})
-
-$btnRCancel.addEventListener('click',() => {
-  rModal.hide();
-})
-
-$openRegisterModal.addEventListener('click', () => {
-  rModal.show();
-})
-
