@@ -14,17 +14,20 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('main');
+    $componentName = "carousel";
+    return view('main', compact('componentName'));
 })->name('main');
 
 Route::get('/register', function () {
-    return view('register-form');
+    $componentName = "register-form";
+    return view('main',compact('componentName'));
 });
 
 Route::post('/register', [UserController::class,'register']);
 
 Route::get('/login', function () {
-    return view('login-form');
+    $componentName = "login-form";
+    return view('main',compact('componentName'));
 });
 // Route::get('/login',function () {
 //     return view('login');

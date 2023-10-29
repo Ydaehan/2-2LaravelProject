@@ -7,13 +7,13 @@
   @vite('resources/js/app.js')
 </head>
 <body>
-    <x-header />
-    <x-carousel />
-    @if(session('success'))
-      <script>
-          alert('{{ session('success') }}');
-      </script>
-    @endif
+  @include('components.header')
+  <x-dynamic-component :component="$componentName" />  
+  @if(session('success'))
+    <script>
+        alert('{{ session('success') }}');
+    </script>
+  @endif
 </body>
 </html>
 
