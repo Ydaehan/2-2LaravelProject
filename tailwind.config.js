@@ -8,13 +8,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      width:{
+      width: {
         'half': '50rem',
         'register': '35rem',
+        'login': '24rem',
       },
       height: {
         'half': '50rem',
         'register': '30rem',
+        'login': '25rem',
       }
     },
   },

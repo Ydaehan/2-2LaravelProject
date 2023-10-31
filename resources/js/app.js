@@ -6,8 +6,8 @@ const toggleBtn = document.getElementById('toggleBtn');
 const popup = document.getElementById('popup');
 
 // 부드러운 효과
-const smooth = (tagId,time,visible) => {
-  if(visible === 'block'){
+const smooth = (tagId, time, visible) => {
+  if (visible === 'block') {
     popup.style.display = visible;
     setTimeout(() => {
       tagId.style.transition = 'opacity 0.5s, transform 0.5s';
@@ -22,33 +22,25 @@ const smooth = (tagId,time,visible) => {
 }
 
 // toggle click event
-toggleBtn.addEventListener('click', function() {
-    console.log('버튼이 클릭되었습니다!');
-    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-    toggleBtn.setAttribute('aria-expanded', !isExpanded);
-    
-    // 팝업의 가시성을 천천히 토글
-    if (!isExpanded) {
-        popup.style.opacity = 0;
-        popup.style.transform = 'translateY(20px)';
-        // 천천히 나타나기
-        smooth(popup,50,'block');
-    } else {
-        // 천천히 사라지기
-        popup.style.transition = 'opacity 0.5s, transform 0.5s';
-        popup.style.opacity = 0;
-        popup.style.transform = 'translateY(20px)';
-        // transition 완료 후 숨김
-        smooth(popup,500,'none');
-    }
+toggleBtn.addEventListener('click', function () {
+  console.log('버튼이 클릭되었습니다!');
+  const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+  toggleBtn.setAttribute('aria-expanded', !isExpanded);
+
+  // 팝업의 가시성을 천천히 토글
+  if (!isExpanded) {
+    popup.style.opacity = 0;
+    popup.style.transform = 'translateY(20px)';
+    // 천천히 나타나기
+    smooth(popup, 50, 'block');
+  } else {
+    // 천천히 사라지기
+    popup.style.transition = 'opacity 0.5s, transform 0.5s';
+    popup.style.opacity = 0;
+    popup.style.transform = 'translateY(20px)';
+    // transition 완료 후 숨김
+    smooth(popup, 500, 'none');
+  }
 });
 
-// login 관련
 
-
-// register
-const $rCancelBtn = document.getElementById('rCancelBtn');
-$rCancelBtn.addEventListener('click',(e) => {
-  e.preventDefault();
-  window.history.back();
-})

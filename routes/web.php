@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,17 +20,10 @@ Route::get('/', function () {
     return view('main', compact('componentName'));
 })->name('main');
 
-Route::get('/register', function () {
-    $componentName = "register-form";
-    return view('main',compact('componentName'));
-});
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class,'register']);
 
-Route::post('/register', [UserController::class,'register']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
 
-Route::get('/login', function () {
-    $componentName = "login-form";
-    return view('main',compact('componentName'));
-});
-// Route::get('/login',function () {
-//     return view('login');
-// });
+Route::post('/logout', [LoginController::class, 'logout'])->name('login');

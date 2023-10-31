@@ -2,7 +2,7 @@
 <div class="flex justify-center">
   <form action="/register" method="post">
     @csrf
-    <div class="flex flex-col border-4 w-register h-register mt-32 ">
+    <div class="flex flex-col border-4 w-register h-register mt-32 bg-slate-100">
       <h2 class="mt-10 text-center">Register</h2>
       <div class="flex flex-row items-center justify-between mt-16">
         <span class="ml-7">id: </span>
@@ -39,3 +39,11 @@
     </div> 
   </form>
 </div>
+<script>
+  // register
+  const $rCancelBtn = document.getElementById('rCancelBtn');
+  $rCancelBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.history.back();
+  })
+</script>

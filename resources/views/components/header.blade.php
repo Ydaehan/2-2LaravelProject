@@ -114,15 +114,27 @@
       <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
     </div>
     <div class="lg:flex lg:flex-1 lg:justify-end">
+    @if(session('user_id'))
+      <form class="flex" action="/" method="get">
+        @csrf
+        <button id="profileBtn" class="hover:text-amber-300 text-sm font-semibold leading-6 text-gray-900">Profile</button>
+      </form>
+      &nbsp&nbsp&nbsp&nbsp
+      <form class="flex" action="/logout" method="post">
+        @csrf
+        <button id="logoutBtn" class="hover:text-amber-300 text-sm font-semibold leading-6 text-gray-900">Logout </button>
+      </form>
+    @else
       <form class="flex" action="/register" method="get">
         @csrf
-        <button id="registerBtn" class="hover:text-amber-300 text-sm font-semibold leading-6 text-gray-900">register <span aria-hidden="true">🆕</span></button>
+        <button id="registerBtn" class="hover:text-amber-300 text-sm font-semibold leading-6 text-gray-900">Register <span aria-hidden="true">🆕</span></button>
       </form>
       &nbsp&nbsp&nbsp&nbsp
       <form class="flex" action="/login" method="get">
         @csrf
         <button id="loginBtn" class="hover:text-lime-400 text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">🚀</span></button>
       </form>
+    @endif
     </div>
   </nav>
 </header>
