@@ -24,7 +24,7 @@ class LoginController extends Controller
 
     if(Auth::attempt($validated)){
       $request->session()->put('user_id', $request->id);
-      return redirect()->route('main')->with('success','로그인 성공');
+      return redirect()->route('main')->with('success','로그인 되었습니다.');
     } else {
       return redirect()->back()->with('login_error','아이디나 비밀번호가 다릅니다.');
     }
@@ -33,6 +33,6 @@ class LoginController extends Controller
   public function logout(Request $request) {
       Auth::logout();
       $request->session()->forget('user_id');
-      return redirect()->route('main');
+      return redirect()->route('main')->with('success','로그아웃 되었습니다.');
   }
 }

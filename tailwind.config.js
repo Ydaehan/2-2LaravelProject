@@ -12,11 +12,15 @@ module.exports = {
         'half': '50rem',
         'register': '35rem',
         'login': '24rem',
+        'profile': '38rem',
+        'inpro': '35rem',
       },
       height: {
         'half': '50rem',
-        'register': '30rem',
+        'register': '35rem',
         'login': '25rem',
+        'profile': '31rem',
+        'inpro': '27rem',
       }
     },
   },

@@ -2,8 +2,8 @@
   <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
     <div class="flex lg:flex-1">
       <a href="/" class="-m-1.5 p-1.5 flex items-center">
-        <span class="font-bold font-['Georgia']">皆のLog</span>
         <img class="h-8 w-auto" src="https://cdn.pixabay.com/photo/2016/01/23/07/58/ball-1157113_1280.png" alt="home">
+        <span class="font-bold text-5xl">EveryLog</span>
       </a>
     </div>
     <div class="flex lg:hidden">
@@ -16,22 +16,12 @@
     </div>
     <div class="hidden lg:flex lg:gap-x-12">
       <div class="relative">
-        <button id="toggleBtn" type="button" class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900" aria-expanded="false">
+        <button id="toggleBtn" type="button" class="flex items-center gap-x-1 text-3xl font-semibold leading-6 text-gray-900" aria-expanded="false">
           개요
           <svg class="h-5 w-5 flex-none text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
           </svg>
         </button>
-        <!--
-          'Product' flyout menu, show/hide based on flyout menu state.
-
-          Entering: "transition ease-out duration-200"
-            From: "opacity-0 translate-y-1"
-            To: "opacity-100 translate-y-0"
-          Leaving: "transition ease-in duration-150"
-            From: "opacity-100 translate-y-0"
-            To: "opacity-0 translate-y-1"
-        -->
         <div id="popup" class="hidden absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
           <div class="p-4">
             <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
@@ -42,11 +32,11 @@
                 </svg>
               </div>
               <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900">
+                <a href="#" class="block font-semibold text-2xl text-gray-900">
                   Analytics
                   <span class="absolute inset-0"></span>
                 </a>
-                <p class="mt-1 text-gray-600">Get a better understanding of your traffic</p>
+                <p class="mt-1 text-gray-600 text-2xl">Get a better understanding of your traffic</p>
               </div>
             </div>
             <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
@@ -56,11 +46,11 @@
                 </svg>
               </div>
               <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900">
+                <a href="#" class="block font-semibold text-gray-900 text-2xl">
                   Engagement
                   <span class="absolute inset-0"></span>
                 </a>
-                <p class="mt-1 text-gray-600">Speak directly to your customers</p>
+                <p class="mt-1 text-gray-600 text-2xl">Speak directly to your customers</p>
               </div>
             </div>
             <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
@@ -70,11 +60,11 @@
                 </svg>
               </div>
               <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900">
+                <a href="#" class="block font-semibold text-gray-900 text-2xl">
                   Security
                   <span class="absolute inset-0"></span>
                 </a>
-                <p class="mt-1 text-gray-600">Your customers’ data will be safe and secure</p>
+                <p class="mt-1 text-gray-600 text-2xl">Your customers’ data will be safe and secure</p>
               </div>
             </div>
             <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
@@ -84,11 +74,11 @@
                 </svg>
               </div>
               <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900">
+                <a href="#" class="block font-semibold text-gray-900 text-2xl">
                   Integrations
                   <span class="absolute inset-0"></span>
                 </a>
-                <p class="mt-1 text-gray-600">Connect with third-party tools</p>
+                <p class="mt-1 text-gray-600 text-2xl">Connect with third-party tools</p>
               </div>
             </div>
             <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
@@ -98,41 +88,40 @@
                 </svg>
               </div>
               <div class="flex-auto">
-                <a href="#" class="block font-semibold text-gray-900">
+                <a href="#" class="block font-semibold text-gray-900 text-2xl">
                   Automations
                   <span class="absolute inset-0"></span>
                 </a>
-                <p class="mt-1 text-gray-600">Build strategic funnels that will convert</p>
+                <p class="mt-1 text-gray-600 text-2xl">Build strategic funnels that will convert</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
-      <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
-      <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
+      <a href="#" class="text-3xl font-semibold leading-6 text-gray-900">Features</a>
+      <a href="#" class="text-3xl font-semibold leading-6 text-gray-900">Marketplace</a>
+      <a href="#" class="text-3xl font-semibold leading-6 text-gray-900">Company</a>
     </div>
     <div class="lg:flex lg:flex-1 lg:justify-end">
     @if(session('user_id'))
-      <form class="flex" action="/" method="get">
+      <form class="flex" action="/profile" method="get">
         @csrf
-        <button id="profileBtn" class="hover:text-amber-300 text-sm font-semibold leading-6 text-gray-900">Profile</button>
+        <button id="profileBtn" class="hover:text-amber-300 text-3xl font-semibold leading-6 text-gray-900">Profile <span aria-hidden="true">🤵</span></button>
       </form>
       &nbsp&nbsp&nbsp&nbsp
       <form class="flex" action="/logout" method="post">
         @csrf
-        <button id="logoutBtn" class="hover:text-amber-300 text-sm font-semibold leading-6 text-gray-900">Logout </button>
+        <button id="logoutBtn" class="hover:text-amber-300 text-3xl font-semibold leading-6 text-gray-900">Logout <span aria-hidden="true">🚶‍♂️</span></button>
       </form>
     @else
       <form class="flex" action="/register" method="get">
         @csrf
-        <button id="registerBtn" class="hover:text-amber-300 text-sm font-semibold leading-6 text-gray-900">Register <span aria-hidden="true">🆕</span></button>
+        <button id="registerBtn" class="hover:text-amber-300 text-3xl font-semibold leading-6 text-gray-900">Register <span aria-hidden="true">🆕</span></button>
       </form>
       &nbsp&nbsp&nbsp&nbsp
       <form class="flex" action="/login" method="get">
         @csrf
-        <button id="loginBtn" class="hover:text-lime-400 text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">🚀</span></button>
+        <button id="loginBtn" class="hover:text-lime-400 text-3xl font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">🚀</span></button>
       </form>
     @endif
     </div>
