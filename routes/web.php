@@ -30,3 +30,4 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('login');
 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+Route::patch('/profile', [ProfileController::class, 'update']);

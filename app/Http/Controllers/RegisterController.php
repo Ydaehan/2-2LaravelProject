@@ -19,7 +19,7 @@ class RegisterController extends Controller
       'id' => 'required|unique:users|max:25|min:4|regex:/^[a-zA-Z0-9]+$/',
       'nickname' => 'required|unique:users|max:10',
       'password' => 'required|min:4|regex:/^[a-zA-Z0-9]+$/',
-      'confPW' => 'required|same:password'
+      'confpw' => 'required|same:password'
     ]);
 
     $user = new User;

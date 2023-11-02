@@ -3,9 +3,9 @@
   <form action="/register" method="post">
     @csrf
     <div class="flex flex-col rounded-3xl border-4 w-register h-register mt-32 bg-slate-100">
-      <h2 class="mt-8 text-center font-bold text-5xl">Register</h2>
+      <h2 class="mt-8 text-center font-bold text-5xl">회원가입</h2>
       <div class="flex flex-row items-center justify-between mt-8">
-        <span class="ml-7 font-bold text-3xl">id: </span>
+        <span class="ml-7 font-bold text-3xl">아이디: </span>
         <input class="mr-7 font-bold text-3xl rounded-xl border-2" id="regUID" name="id" type="text" value="{{ old('id')}}" placeholder="ID" required>
       </div>
       <div class="h-7">
@@ -14,7 +14,7 @@
       @enderror
       </div>
       <div class="flex flex-row items-center justify-between mt-4">
-        <span class="ml-7 font-bold text-3xl">nickname</span>
+        <span class="ml-7 font-bold text-3xl">닉네임:</span>
         <input class="mr-7 font-bold text-3xl rounded-xl border-2" id="regNickname" name="nickname" type="text" value="{{ old('nickname')}}" placeholder="nickname" required>
       </div>
       <div class="h-7">
@@ -23,7 +23,7 @@
       @enderror
       </div>
       <div class="flex flex-row items-center justify-between mt-4">
-        <span class="ml-7 font-bold text-3xl">password: </span>
+        <span class="ml-7 font-bold text-3xl">비밀번호: </span>
         <input class="mr-7 font-bold text-3xl rounded-xl border-2" id="regPw" name="password" type="password" value="{{ old('password')}}" placeholder="PW" required>
       </div>
       <div class="h-7">
@@ -32,8 +32,8 @@
       @enderror
       </div>
       <div class="flex flex-row items-center justify-between mt-4 mb-1.5">
-        <span class="ml-7 font-bold text-3xl">password_confirmation: </span>
-        <input class="mr-7 font-bold text-3xl rounded-xl border-2" id="regConfPW" type="password" name="confPW" value="{{ old('confPW')}}" placeholder="confirmPW" required>
+        <span class="ml-7 font-bold text-3xl">비밀번호 확인: </span>
+        <input class="mr-7 font-bold text-3xl rounded-xl border-2" id="regConfPW" type="password" name="confpw" value="{{ old('confPW')}}" placeholder="confpw" required>
       </div>
       <div class="h-7">
       @error('confPW')
@@ -41,17 +41,14 @@
       @enderror
       </div>
       <div class="flex flex-row justify-between mt-3">
-        <button id="rCancelBtn" type="button" class="border-2 hover:bg-slate-100 rounded-full text-3xl w-20">cancel</button>
-        <button id="regBtn" type="submit" class="bg-red-700 hover:bg-red-500 rounded-full text-3xl hover:font-semibold text-white w-20">register</button>
+        <button id="cancelBtn" type="button" class="border-2 hover:bg-slate-100 rounded-full text-3xl w-20">취소</button>
+        <button id="regBtn" type="submit" class="bg-red-700 hover:bg-red-500 rounded-full text-3xl hover:font-semibold text-white w-20">가입</button>
       </div>
     </div> 
   </form>
 </div>
-<script>
-  // register
-  const $rCancelBtn = document.getElementById('rCancelBtn');
-  $rCancelBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.history.back();
-  })
-</script>
+@if(session('login_error'))
+  <script>
+    alert("{{ session('login_error') }}");
+  </script>
+@endif
