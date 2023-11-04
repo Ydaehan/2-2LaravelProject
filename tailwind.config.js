@@ -14,6 +14,7 @@ module.exports = {
         'login': '24rem',
         'profile': '38rem',
         'inpro': '35rem',
+        'post': '60rem',
       },
       height: {
         'half': '50rem',

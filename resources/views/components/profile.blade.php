@@ -1,6 +1,6 @@
 @props (['nickname','password'])
 
-<div class="flex justify-center mt-32">
+<div class="flex flex-row justify-center mt-32">
     <div class="flex justify-center w-profile border-gray-400 border-2 h-profile bg-opacity-50 rounded-3xl bg-slate-400 mt-10">
         <div class=" w-inpro h-inpro bg-slate-200  bg-opacity-35 rounded-full mt-8 p-10">
             <div>
@@ -36,11 +36,22 @@
                         @enderror
                     </div>
                     <div class="flex justify-between">
-                        <input id="cancelBtn" type="submit" value="취소" class="bg-blue-500 border-2 w-20 h-10 rounded-xl hover:bg-blue-700">
-                        <input id="proUpdateBtn"type="submit" value="수정" class="bg-red-500 border-2 w-20 h-10 rounded-xl hover:bg-red-700">
+                        <input id="cancelBtn" type="submit" value="취소" class="bg-blue-500 border-2 w-20 h-10 rounded-xl hover:bg-blue-700 font-bold">
+                        <input id="proUpdateBtn"type="submit" value="수정" class="bg-red-500 border-2 w-20 h-10 rounded-xl hover:bg-red-700 font-bold">
                     </div>
                 </form>
             </div>
         </div>
+    </div>
+    <div class="flex justify-center mt-10 font-bold rounded-3xl w-inpro h-40 bg-slate-500">
+        <form action="/delete/{{ session()->get('user_id') }}" method="post" class="w-full h-full">
+            @csrf
+            @method('delete')
+            <div class="flex flex-col items-center mt-4">
+                <label for="confirmDel">회원탈퇴</label>
+                <input id="confirmDel" type="text" name="confirmDel" placeholder="password" required class="border-2 rounded-xl mr-2 text-2xl font-bold">
+                <input type="submit" value="탈퇴" class="bg-stone-400 border-2 w-20 h-9 rounded-xl hover:bg-red-500 mt-2">
+            </div>            
+        </form>
     </div>
 </div>

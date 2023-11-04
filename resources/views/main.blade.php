@@ -8,12 +8,12 @@
   @vite('resources/css/font.css')
   
 </head>
-<body>
-  @include('components.header')
-  <x-dynamic-component :component="$componentName" :user_id="$user_id ?? null" :nickname="$nickname ?? null"/>  
+<body class="min-h-screen">
+  <x-header />
+  <x-dynamic-component :component="$componentName" :user_id="$user_id ?? null" :nickname="$nickname ?? null" :post_id="$post_id ?? null" :posts="$posts ?? null" />  
   @if(session('success'))
     <script>
-        alert('{{ session('success') }}');
+      alert("{{ session('success') }}");
     </script>
   @endif
   @if(session('error'))

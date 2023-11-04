@@ -29,8 +29,6 @@ class RegisterController extends Controller
 
     $user->save();
 
-    $request->session()->flash('success', '회원가입이 완료되었습니다.');
-
-    return redirect()->route('main');
+    return redirect()->route('main')->with('success','회원가입이 완료되었습니다.');
   }
 }

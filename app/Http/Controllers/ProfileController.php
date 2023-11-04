@@ -53,8 +53,6 @@ class ProfileController extends Controller
         // 닉네임만 입력받았을 경우
 
 
-        return redirect()->route('profile')->with('success','회원정보를 성공적으로 변경했습니다.');
-
-        
+        return redirect()->route('profile')->with('success','회원정보를 성공적으로 변경했습니다.');       
     }
 }

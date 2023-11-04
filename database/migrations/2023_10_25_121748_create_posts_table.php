@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('title',20);
             $table->string('content',1000);
             $table->string('user_id');
-            $table->string('email');
             $table->unsignedInteger('view')->default(0);
             $table->timestamps();
         });

@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProfileController; 
+use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,13 +23,22 @@ Route::get('/', function () {
     return view('main', compact('componentName'));
 })->name('main');
 
+// register
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class,'register']);
-
+// login
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
-
-Route::post('/logout', [LoginController::class, 'logout'])->name('login');
-
+// logout
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+// profile 
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::patch('/profile', [ProfileController::class, 'update']);
+Route::delete('/delete/{user_id}',[UserController::class, 'delete']);
+// show all post
+Route::get('/post', [PostController::class, 'index'])->name('post');
+// post form
+Route::get('/create/post', [PostController::class, 'createPost'])->name('createPostForm');
+Route::post('/post',[PostController::class,'create']);
+// show detail post contents
+Route::get('/post/{post_id}',[PostController::class,'show'])->name('detailPost');
