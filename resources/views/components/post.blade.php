@@ -39,4 +39,5 @@
             </tr>
         @endif
     </table>
+    <x-pagination :posts="$posts"/>
 </div>

@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.pagination .page-item {
+    @apply text-3xl;
+}
+
+.pagination .active {
+    @apply text-3xl;
+}
+
+.pagination .disabled {
+    @apply text-3xl;
+}

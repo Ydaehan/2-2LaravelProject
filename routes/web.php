@@ -44,6 +44,7 @@ Route::post('/post',[PostController::class,'create']);
 Route::get('/post/{post_id}',[PostController::class,'show'])->name('detailPost');
 
 // post edit form
-Route::get('/post/edit/{post_id}',[PostController::class,'edit'])->name('editPost');
+Route::get('/post/edit/{post_id}',[PostController::class,'editForm'])->name('editPost');
+Route::put('/post/edit/{post_id}',[PostController::class,'edit']);
 // delete post
-Route::post('/post/delete/{post_id}',[PostController::class,'delete']);
+Route::delete('/post/delete/{post_id}',[PostController::class,'delete']);

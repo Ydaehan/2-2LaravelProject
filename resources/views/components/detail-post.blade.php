@@ -33,6 +33,8 @@
                 <input type="submit" class="mr-2 w-20 border border-gray-300 shadow-md rounded-md bg-cyan-400 hover:bg-cyan-300" value="수정">
             </form>
             <form action="/post/delete/{{ $posts->id }}" method="post">
+                @csrf
+                @method('delete')
                 <input type="submit" class="w-20 border border-gray-300 shadow-md rounded-md bg-red-500 hover:bg-red-400" value="삭제">
             </form>
         </div>

@@ -8,4 +8,3 @@ $cancelBtn.addEventListener('click', (e) => {
   window.location.href = '/';
 })
 
-// profile

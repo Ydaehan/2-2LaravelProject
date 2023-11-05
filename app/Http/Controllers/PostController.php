@@ -14,7 +14,8 @@ class PostController extends Controller
 {
     public function index() {
         $componentName = "post";
-        $posts = Post::orderByDesc("created_at")->get();
+        $posts = Post::orderByDesc("created_at")->paginate(10);
+        // dd($posts);
         return view('main',compact('componentName','posts'));
     }
 
@@ -54,8 +55,26 @@ class PostController extends Controller
         return view('main',compact('componentName','posts'));
     }
 
-    public function edit(string $post_id) {
-        dd($post_id);
+    public function editForm(string $post_id) {
+        $posts = Post::find($post_id);
+        $componentName = 'edit-post';
+        return view('main',compact('componentName','posts'));
+    }
+
+    public function edit(Request $request, string $post_id) {
+        $componentName = 'detail-post';
+        $validated = $request->validate([
+            'title'=> 'required|max:30|min:1',
+            'content'=> 'required|min:1',
+            'user_id' => 'required',
+        ]);
+        
+        $post = Post::find($post_id);
+        $post->update(['title' => $request->title]);
+        $post->update(['content' => $request->content]);
+        
+        $posts = Post::find($post_id);
+        return view('main',compact('componentName','posts'));
     }
 
     public function delete(string $post_id) {
