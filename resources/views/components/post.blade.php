@@ -1,6 +1,6 @@
 <div class="w-full h-full flex flex-col font-normal text-4xl px-20 py-10">
     <div class="font-bold text-6xl mb-10">
-        | 전체게시판
+        | 자유게시판
     </div>
     <table>
         <tr class="border-solid border-2 border-black text-center bg-amber-200 bg-opacity-60">
@@ -19,7 +19,7 @@
                     <td class="border-dashed border-2 border-black "><input type="submit" value="{{$post->title}}" class="hover:font-bold"></td>
                     <td class="border-dashed border-2 border-black ">{{ $post->user_id }}</td>
                     <td class="border-dashed border-2 border-black ">{{ $post->view }}</td>
-                    <td>{{ $post->created_at }}</td>
+                    <td>{{ $post->created_at->format('Y-m-d') }}</td>
                 </form>
             </tr>
             @endforeach

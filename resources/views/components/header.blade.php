@@ -1,10 +1,13 @@
 <header class="bg-white">
   <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-    <div class="flex lg:flex-1">
+    <div class="flex lg:flex-1 items-center justify-between">
       <a href="/" class="-m-1.5 p-1.5 flex items-center">
         <img class="h-8 w-auto" src="https://cdn.pixabay.com/photo/2016/01/23/07/58/ball-1157113_1280.png" alt="home">
         <span class="font-bold text-5xl">EveryLog</span>
       </a>
+      <div class="hidden lg:flex lg:gap-x-12 w-96">
+        <a href="/post" class="text-3xl font-semibold leading-6 text-gray-900 hover:text-gray-300">자유게시판</a>
+      </div>
     </div>
     <div class="flex lg:hidden">
       <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
@@ -14,12 +17,9 @@
         </svg>
       </button>
     </div>
-    <div class="hidden lg:flex lg:gap-x-12 w-96 justify-between">
-      <a href="/post" class="text-3xl font-semibold leading-6 text-gray-900 hover:text-gray-300">전체게시판</a>
-      <a href="#" class="text-3xl font-semibold leading-6 text-gray-900 hover:text-gray-300">자유게시판</a>
-      <a href="#" class="text-3xl font-semibold leading-6 text-gray-900 hover:text-gray-300">인기글</a>
-
-    </div>
+    <!-- <div class="hidden lg:flex lg:gap-x-12 w-96 justify-between">
+      <a href="/post" class="text-3xl font-semibold leading-6 text-gray-900 hover:text-gray-300">자유게시판</a>
+    </div> -->
     <div class="lg:flex lg:flex-1 lg:justify-end">
     @if(session('user_id'))
       <form class="flex" action="/profile" method="get">

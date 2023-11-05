@@ -32,7 +32,7 @@ class ProfileController extends Controller
 
         $user_id = session()->get('user_id');
         $dupNickname = User::where('nickname',$nickname)->first();
-        $nickname_check = $nickname == null ? true : false; 
+        $nickname_check = $dupNickname == null ? true : false; 
 
         $user = User::find($user_id);
         if (Hash::check($password, $user->password)){

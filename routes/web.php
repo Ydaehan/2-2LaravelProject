@@ -42,3 +42,8 @@ Route::get('/create/post', [PostController::class, 'createPost'])->name('createP
 Route::post('/post',[PostController::class,'create']);
 // show detail post contents
 Route::get('/post/{post_id}',[PostController::class,'show'])->name('detailPost');
+
+// post edit form
+Route::get('/post/edit/{post_id}',[PostController::class,'edit'])->name('editPost');
+// delete post
+Route::post('/post/delete/{post_id}',[PostController::class,'delete']);

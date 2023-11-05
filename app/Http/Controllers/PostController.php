@@ -44,9 +44,22 @@ class PostController extends Controller
         return redirect()->route('post');
     }
 
-    public function show(Request $request, string $id) {
+    public function show(string $post_id) {
         $componentName = "detail-post";
-        $post_id = $id;
-        return view('main',compact('componentName','post_id'));
+        $posts = Post::find($post_id);
+        $view = $posts->view + 1;
+        Post::where('id',$post_id)->update(['view' => $view]);
+
+        $posts = Post::find($post_id);
+        return view('main',compact('componentName','posts'));
+    }
+
+    public function edit(string $post_id) {
+        dd($post_id);
+    }
+
+    public function delete(string $post_id) {
+        Post::find($post_id)->delete();
+        return redirect()->route('post');
     }
 }
