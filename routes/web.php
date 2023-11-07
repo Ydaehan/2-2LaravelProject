@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
@@ -48,3 +49,7 @@ Route::get('/post/edit/{post_id}',[PostController::class,'editForm'])->name('edi
 Route::put('/post/edit/{post_id}',[PostController::class,'edit']);
 // delete post
 Route::delete('/post/delete/{post_id}',[PostController::class,'delete']);
+
+// comment
+// create comment
+Route::post('/post/{post_id}/comments',[CommentController::class,'create']);

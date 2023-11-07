@@ -15,7 +15,7 @@
             <tr class="border-solid border-2 border-black text-center h-8">
                 <form action="/post/{{ $post->id }}" method="get">
                     @csrf
-                    <td>{{ $index+1 }}</td>
+                    <td>{{ $index+1 + ($posts->perPage() * ($posts->currentPage() - 1)) }}</td>
                     <td class="border-dashed border-2 border-black "><input type="submit" value="{{$post->title}}" class="hover:font-bold"></td>
                     <td class="border-dashed border-2 border-black ">{{ $post->user_id }}</td>
                     <td class="border-dashed border-2 border-black ">{{ $post->view }}</td>

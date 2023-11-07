@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 .pagination .page-item {
-    @apply text-3xl;
+    @apply text-4xl;
 }
 
 .pagination .active {
-    @apply text-3xl;
+    @apply text-4xl;
 }
 
 .pagination .disabled {
-    @apply text-3xl;
+    @apply text-4xl;
 }
