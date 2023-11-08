@@ -1,4 +1,4 @@
-@props(["posts"])
+@props(['posts','comments'])
 <div class="px-60">
   <div class="px-4 sm:px-0 font-bold text-6xl mb-10">
     | 자유게시판
@@ -42,4 +42,4 @@
     </div> 
   </div>
 </div>
-<x-comment :posts="$posts"/>
+<x-comment :posts="$posts" :comments="$comments"/>

@@ -52,7 +52,8 @@ class PostController extends Controller
         Post::where('id',$post_id)->update(['view' => $view]);
 
         $posts = Post::find($post_id);
-        return view('main',compact('componentName','posts'));
+        $comments= $posts->comment()->paginate(10);
+        return view('main',compact('componentName','posts','comments'));
     }
 
     public function editForm(string $post_id) {

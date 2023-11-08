@@ -10,7 +10,7 @@
 </head>
 <body class="min-h-screen">
   <x-header />
-  <x-dynamic-component :component="$componentName" :user_id="$user_id ?? null" :nickname="$nickname ?? null" :posts="$posts ?? null" />  
+  <x-dynamic-component :component="$componentName" :user_id="$user_id ?? null" :nickname="$nickname ?? null" :posts="$posts ?? null" :comments="$comments ?? null"/>  
   @if(session('success'))
     <script>
       alert("{{ session('success') }}");

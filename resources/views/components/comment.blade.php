@@ -1,7 +1,7 @@
-@props(["posts"])
+@props(['posts','comments'])
 <div class="px-60 py-10">
   <label for="comment" class="text-3xl">댓글</label>
-  <span class="text-3xl">0개</span>
+  <span class="text-3xl">{{$comments->total()}}개</span>
   <form action="/post/{{ $posts->id }}/comments" method="post" class="flex justify-end">
     @csrf
     <input type="text" name="comment" placeholder="댓글" class="text-2xl border-gray-700 rounded-3xl border-2 h-10 w-full" required>
@@ -10,7 +10,7 @@
   <div>
     <table class="mt-5 w-full">
       <tbody class="border-2 border-gray-700 ">
-        @if($posts->comment == null)
+        @if($posts->comment->isEmpty())
             <tr class="items-center">
               <td>아직 댓글이 없습니다.</td>
             </tr>
@@ -21,9 +21,9 @@
             <td>작성자</td>
             <td>작성일자</td>
           </tr>
-          @foreach ($posts->comment as $index => $comment)
+          @foreach ($comments as $index => $comment)
             <tr class="flex justify-between px-7 border-b-2 border-dotted border-slate-400 last:border-0">
-              <td>{{ $index + 1 }}</td>
+              <td>{{ $index+1 + ($comments->perPage() * ($comments->currentPage() - 1)) }}</td>
               <td>{{ $comment->content }}</td>
               <td>{{ $comment->user_id }}</td>
               <td>{{ $comment->created_at->format('Y-m-d')}}</td>
@@ -32,5 +32,6 @@
         @endif
       </tbody>
     </table>
+    <x-pagination :items="$comments"/>
   </div>
 </div>
