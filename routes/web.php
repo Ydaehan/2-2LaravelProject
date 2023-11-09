@@ -53,3 +53,6 @@ Route::delete('/post/delete/{post_id}',[PostController::class,'delete']);
 // comment
 // create comment
 Route::post('/post/{post_id}/comments',[CommentController::class,'create']);
+Route::patch('/post/{post_id}/comments/{comment_id}',[CommentController::class,'update'])->name('commentUpdate');
+Route::delete('/post/{post_id}/comments/{comment_id}',[CommentController::class,'delete'])->name('commentDelete');
+

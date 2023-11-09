@@ -75,7 +75,8 @@ class PostController extends Controller
         $post->update(['content' => $request->content]);
         
         $posts = Post::find($post_id);
-        return view('main',compact('componentName','posts'));
+        $comments= $posts->comment()->paginate(10);
+        return view('main',compact('componentName','posts','comments'));
     }
 
     public function delete(string $post_id) {
