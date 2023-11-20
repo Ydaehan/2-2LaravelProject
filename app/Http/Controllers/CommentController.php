@@ -11,7 +11,7 @@ class CommentController extends Controller
 {
     public function create(Request $request, string $post_id){
         if(!$request->session()->get('user_id')){
-            return redirect()->back()->with('error','로그인 후 이용해주세요');
+            return redirect()->route('login')->with('error','로그인 후 이용해주세요');
         }
         $validated = $request->validate([
             'comment'=> 'required|min:1|max:300'
