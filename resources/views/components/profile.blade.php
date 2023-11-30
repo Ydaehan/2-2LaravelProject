@@ -1,8 +1,8 @@
 @props (['nickname','password'])
 
-<div class="flex flex-row justify-center mt-32">
+<div class="flex flex-col justify-center items-center mt-16">
     <div class="flex justify-center w-profile border-gray-400 border-2 h-profile bg-opacity-50 rounded-3xl bg-slate-400 mt-10">
-        <div class=" w-inpro h-inpro bg-slate-200  bg-opacity-35 rounded-full mt-8 p-10">
+        <div class="w-inpro h-inpro bg-slate-200  bg-opacity-35 rounded-full mt-8 p-10">
             <div>
                 <p class="text-center font-bold text-5xl">프로필 변경</p>
                 <form action="/profile" method="post">
@@ -43,13 +43,13 @@
             </div>
         </div>
     </div>
-    <div class="flex justify-center mt-10 font-bold rounded-3xl w-inpro h-40 bg-slate-500">
+    <div class="flex justify-center mt-10 font-bold rounded-3xl w-profile h-40 bg-slate-500">
         <form action="/delete/{{ session()->get('user_id') }}" method="post" class="w-full h-full">
             @csrf
             @method('delete')
             <div class="flex flex-col items-center mt-4">
                 <label for="confirmDel">회원탈퇴</label>
-                <input id="confirmDel" type="text" name="confirmDel" placeholder="password" required class="border-2 rounded-xl mr-2 text-2xl font-bold">
+                <input id="confirmDel" type="text" name="confirmDel" placeholder="password" required class="border-2 rounded-xl mr-2 text-2xl font-bold w-80 text-center">
                 <input type="submit" value="탈퇴" class="bg-stone-400 border-2 w-20 h-9 rounded-xl hover:bg-red-500 mt-2">
             </div>            
         </form>
