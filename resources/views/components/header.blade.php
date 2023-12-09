@@ -22,10 +22,12 @@
     </div> -->
     <div class="lg:flex lg:flex-1 lg:justify-end">
     @if(session('user_id'))
+      @if(session('user_id' !== 'admin'))
       <form class="flex" action="/profile" method="get">
         @csrf
         <button id="profileBtn" class="hover:text-amber-300 text-3xl font-semibold leading-6 text-gray-900">Profile <span aria-hidden="true">🤵</span></button>
       </form>
+      @endif
       &nbsp&nbsp&nbsp&nbsp
       <form class="flex" action="/logout" method="post">
         @csrf

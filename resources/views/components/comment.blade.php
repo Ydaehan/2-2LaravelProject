@@ -28,7 +28,7 @@
               <td><textarea id="editTextarea{{$comment->id}}" onkeyup="autoResize(this)" onkeydown="autoResize(this)" type="text" name="content" form="editForm{{$comment->id}}" class="commentCtt resize-none border-0 rounded-2xl w-full whitespace-pre-wrap text-2xl box-border"  required readonly>{{ $comment->content }}</textarea></td>
               <td>{{ $comment->user_id }}</td>  
               <td>{{ $comment->created_at->format('Y-m-d')}}</td>
-            @if( session('user_id') == $comment->user_id )
+            @if( session('user_id') == $comment->user_id || session('user_id') == 'admin')
               <form id="editForm{{$comment -> id}}" action="{{ route('commentDelete', [$posts->id, $comment->id])}}" method="post">
                 @csrf
                 @method('patch')

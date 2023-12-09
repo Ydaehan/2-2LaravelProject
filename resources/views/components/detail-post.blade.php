@@ -22,12 +22,12 @@
         <dd class="mt-1 text-2xl font-bold leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{ $posts->created_at->format('Y-m-d') }}</dd>
       </div>
     </dl>
-    <div class="flex-col px-4 py-6 sm:gap-4 sm:px-3 h-80 border border-gray-400 rounded-md shadow-xl">
-        <div class="flex justify-start items-center h-60">
+    <div class="flex-col px-4 py-6 sm:gap-4 sm:px-3  border border-gray-400 rounded-md shadow-xl w-auto h-auto">
+        <div class="flex justify-start items-center h-auto">
             <dt class="font-bold text-3xl leading-6 text-gray-900 w-12">내용</dt>
-            <textarea class="mt-1 text-4xl font-bold rounded-md leading-6 text-gray-700 sm:col-span-2 sm:mt-0 w-full h-full" readonly>{{ $posts->content }}</textarea>
+            <div class="mt-1 text-4xl leading-relaxed font-bold rounded-md border-gray-500 border-2 p-2  text-gray-700 sm:col-span-2 sm:mt-0 w-full h-auto overflow-hidden whitespace-pre-wrap break-all">{{ $posts->content }}</div>
         </div>
-        @if(session('user_id') == $posts->user_id )
+        @if(session('user_id') == $posts->user_id || session('user_id') == 'admin' )
         <div class="flex justify-end py-2">
             <form action="/post/edit/{{ $posts->id }}" method="get">
                 <input type="submit" class="mr-2 w-20 border border-gray-300 shadow-md rounded-md bg-cyan-400 hover:bg-cyan-300" value="수정">

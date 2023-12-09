@@ -16,8 +16,8 @@ class RegisterController extends Controller
   }
   public function register(Request $request) {
     $validated = $request->validate([
-      'id' => 'required|unique:users|max:25|min:4|regex:/^[a-zA-Z0-9]+$/',
-      'nickname' => 'required|unique:users|max:10',
+      'id' => 'required|unique:users|max:25|min:4|regex:/^[a-zA-Z0-9]+$/|not_in:admin',
+      'nickname' => 'required|unique:users|max:10|not_in:admin',
       'password' => 'required|min:4|regex:/^[a-zA-Z0-9]+$/',
       'confpw' => 'required|same:password'
     ]);

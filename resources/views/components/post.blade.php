@@ -23,18 +23,22 @@
                 </form>
             </tr>
             @endforeach
+            @if(session('user_id') !== 'admin')
             <form action="/create/post" method="get" class="flex justify-end absolute right-0 bottom-0">
                 <input type="submit" value="글쓰기" class="w-20 pt-1 pb-2 m-4 border-black border-2 rounded-xl hover:bg-slate-200">
             </form>
+            @endif
         @else
             <tr class="border-solid border-2 border-black text-center w-half h-44 relative">
                 <td colspan="5" class="font-bold">
                     아직 게시물이 존재하지 않습니다.
                     <!-- <input type="submit" value="수정" class="bg-cyan-300 hover:bg-cyan-400 rounded-xl w-12">
                     <input type="submit" value="삭제" class="bg-red-400 hover:bg-red-500 rounded-xl w-12"> -->
+                    @if (session('user_id') !== 'admin')
                     <form action="/create/post" method="get" class="flex justify-end absolute right-0 bottom-0">
                         <input type="submit" value="글쓰기" class="w-20 pt-1 pb-2 m-4 border-black border-2 rounded-xl hover:bg-slate-200">
                     </form>
+                    @endif
                 </td> 
             </tr>
         @endif
