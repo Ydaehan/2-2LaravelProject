@@ -1,3 +1,4 @@
+@props (['posts'])
 <div class="w-full h-full flex flex-col font-normal text-4xl px-20 py-10">
     <div class="font-bold text-6xl mb-10">
         | 자유게시판
@@ -10,7 +11,7 @@
             <td class="border-dashed border-2 border-black w-24">조회수</td>
             <td class="border-dashed border-2 border-black w-72">작성일</td>
         </tr>
-        @if($posts !== null)
+        @if($posts->isNotEmpty())
             @foreach($posts as $index => $post)
             <tr class="border-solid border-2 border-black text-center h-8">
                 <form action="/post/{{ $post->id }}" method="get">
@@ -43,5 +44,6 @@
             </tr>
         @endif
     </table>
-    <x-pagination :items="$posts"/>
+    {{-- <x-pagination :items="$posts"/> --}}
+    {{ $posts->links('vendor.pagination.tailwind') }}
 </div>

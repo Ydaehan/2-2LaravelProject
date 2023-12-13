@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
-use App\Models\User;
+use App\Models\Comment;
 
 class PostController extends Controller
 {
@@ -16,7 +16,7 @@ class PostController extends Controller
         $componentName = "post";
         $posts = Post::orderByDesc("created_at")->paginate(10);
         // dd($posts);
-        return view('main',compact('componentName','posts'));
+        return view('main',compact('componentName'))->with(['posts'=>$posts]);
     }
 
     public function createPost() {
@@ -51,8 +51,8 @@ class PostController extends Controller
         $view = $posts->view + 1;
         Post::where('id',$post_id)->update(['view' => $view]);
 
-        $posts = Post::find($post_id);
-        $comments= $posts->comment()->paginate(10);
+        $comments= $posts->comment()->get();
+        // dd($comments);
         return view('main',compact('componentName','posts','comments'));
     }
 
@@ -75,7 +75,7 @@ class PostController extends Controller
         $post->update(['content' => $request->content]);
         
         $posts = Post::find($post_id);
-        $comments= $posts->comment()->paginate(10);
+        $comments= $posts->comment()->get();
         return view('main',compact('componentName','posts','comments'));
     }
 

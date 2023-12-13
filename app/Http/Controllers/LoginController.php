@@ -29,6 +29,7 @@ class LoginController extends Controller
       if (Auth::guard('admins')->attempt($validated)) {
         // 로그인 성공
         $request->session()->put('user_id', $request->id);
+        dd(session()->all());
         return redirect()->route('main');
       } else {
           // 로그인 실패

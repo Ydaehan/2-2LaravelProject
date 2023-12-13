@@ -1,7 +1,9 @@
 @props(['posts','comments'])
+{{-- {{ dd() }} --}}
 <div class="px-60 py-10">
   <label for="comment" class="text-3xl">댓글</label>
-  <span class="text-3xl">{{$comments->total()}}개</span>
+  <span class="text-3xl">{{ $comments->count() }}개</span>  
+  
   <form action="/post/{{ $posts->id }}/comments" method="post" class="flex justify-end">
     @csrf
     <input type="text" name="comment" placeholder="댓글" class="text-2xl border-gray-700 rounded-3xl border-2 h-10 w-full" required>
@@ -17,29 +19,29 @@
         @else
           <tr class="flex justify-between px-7 border-b-2 border-dotted border-slate-400 last:border-0 bg-amber-200 bg-opacity-60">
             <td>순번</td>
-            <td class="w-40">내용</td>
+            <td class="w-44 flex text-center justify-center">내용</td>
             <td>작성자</td>
             <td>작성일자</td>
-            <td class="w-20">수정 / 삭제</td>
+            <td>수정 / 삭제</td>
           </tr>
           @foreach ($comments as $index => $comment)
-            <tr class="flex justify-between px-7 border-b-2 border-dotted border-slate-400 last:border-0 items-center">
-              <td>{{ $index+1 + ($comments->perPage() * ($comments->currentPage() - 1)) }}</td>
-              <td><textarea id="editTextarea{{$comment->id}}" onkeyup="autoResize(this)" onkeydown="autoResize(this)" type="text" name="content" form="editForm{{$comment->id}}" class="commentCtt resize-none border-0 rounded-2xl w-full whitespace-pre-wrap text-2xl box-border"  required readonly>{{ $comment->content }}</textarea></td>
-              <td>{{ $comment->user_id }}</td>  
-              <td>{{ $comment->created_at->format('Y-m-d')}}</td>
+            <tr class="flex justify-between px-7 border-b-2 border-dotted border-slate-400 last:border-0 text-center items-center">
+              <td class="flex text-center items-center justify-center">{{ $index+1 }}</td>
+              <td><textarea id="editTextarea{{$comment->id}}" onkeyup="autoResize(this)" onkeydown="autoResize(this)" type="text" name="content" form="editForm{{$comment->id}}" class="flex items-center text-center justify-center commentCtt resize-none border-0 rounded-2xl w-full whitespace-pre-wrap text-2xl box-border w-auto"  required readonly>{{ $comment->content }}</textarea></td>
+              <td class="flex items-center text-center justify-center">{{ $comment->user_id }}</td>  
+              <td class="flex items-center text-center justify-center">{{ $comment->created_at->format('Y-m-d')}}</td>
             @if( session('user_id') == $comment->user_id || session('user_id') == 'admin')
-              <form id="editForm{{$comment -> id}}" action="{{ route('commentDelete', [$posts->id, $comment->id])}}" method="post">
-                @csrf
-                @method('patch')
-                <input id="editedContent{{$comment -> id}}" type="hidden" name="inputContent">
-                <td><input type="submit" data-id="{{ $comment->id}}" class="cttEditBtn w-20 border border-gray-300 shadow-md rounded-md bg-cyan-400 hover:bg-cyan-300" value="수정">
-              </form>
-              <form action="{{ route('commentDelete', [$posts->id, $comment->id])}}" method="post">
-                @csrf
-                @method('delete')
-                <input type="submit" class="w-20 border border-gray-300 shadow-md rounded-md bg-red-500 hover:bg-red-400" value="삭제"></td>
-              </form>
+                <form id="editForm{{$comment -> id}}" action="{{ route('commentDelete', [$posts->id, $comment->id])}}" method="post">
+                  @csrf
+                  @method('patch')
+                  <input id="editedContent{{$comment -> id}}" type="hidden" name="inputContent">
+                  <td><input type="submit" data-id="{{ $comment->id}}" class="cttEditBtn w-20 border border-gray-300 shadow-md rounded-md bg-cyan-400 hover:bg-cyan-300" value="수정">
+                </form>
+                <form action="{{ route('commentDelete', [$posts->id, $comment->id])}}" method="post">
+                  @csrf
+                  @method('delete')
+                  <input type="submit" class="w-20 border border-gray-300 shadow-md rounded-md bg-red-500 hover:bg-red-400" value="삭제"></td>
+                </form>
               @else
                 <td class="w-20"></td>
               @endif
@@ -48,7 +50,7 @@
         @endif
       </tbody>
     </table>
-    <x-pagination :items="$comments"/>
+    
   </div>
 </div>
 <script>
